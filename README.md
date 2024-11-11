@@ -6,7 +6,7 @@ This repository contains a Python script designed for calibrating servos for a r
 
 1. Calibration_Procedure.ipynb: Google collab that will find coefficient for least square regression to convert degrees to PWM with accuracy for each servo
 
-2. calibarte_servos.ino: Arduino code that with help of [Calibration Tool]() will find real PWM to reach known angles
+2. calibarte_servos.ino: Arduino code that with help of [Calibration Tool](https://github.com/botzo-team/STL_files/tree/main/servo_calibration_tools) will find real PWM to reach known angles
 
 3. save_coefficent: Folder containg both, .csv and .xlxs, used to save and store calibration values and coefficients for each servo in each leg
 
@@ -27,7 +27,7 @@ The following process will guide you through setting up and running the calibrat
 
 1. Use cell 1 to retrive expected PWM for a known set of angles (`[0, 45, 90, 135, 180]`). PWM calculation are based on the ideal servo described in the datasheet.
 
-2. Use the [arduino code]() to allign the calibration tool in the desire angle and save the real PWM to reach desire angle.
+2. Use the [arduino code](https://github.com/botzo-team/calibrate_servos/blob/main/calibarte_servos.ino) to allign the calibration tool in the desire angle and save the real PWM to reach desire angle.
 
 3. Save PWM signals founded. For example, for my Front Right leg I had this:
    ```python
@@ -39,12 +39,6 @@ The following process will guide you through setting up and running the calibrat
 4. Run Least Square regression and save a, b, c coefficients to fulfill the equation that best map desire angle in degree to PWM
 
 5. Test new accuracy
-
-### Arduino code
-The arduino code, when uploaded, will move one servo to a desire angle.
-Upload the code and open serial monitor. You will see the current PWM signal.
-1. set it to 500
-2. Attach the servo arm with the [calibration tool]()
 
 ### Cell 1: Setup and PWM Conversion
 
@@ -72,9 +66,51 @@ print("\nDesired PWM values:", desired_PWM)
 print("\nPlease run the servo with the above PWM values and record the actual angles reached.")
 ```
 
+### Arduino code
+The arduino code, when uploaded, will move one servo to a desire angle.
+Upload the code and open serial monitor. You will see the current PWM signal.
+1. set it to 500
+2. Attach the servo arm with the [calibration tool arm](https://github.com/botzo-team/STL_files/blob/main/servo_calibration_tools/arm_for_calibration_tool.stl) as close as possible to 0
+3. Test some PWM to allign perfectly with 0
+4. When reached the desire angle with maximum precision, write down the real PWM signal.
+5. repeat process for the other known angles `[45, 90, 135, 180]`
+
 ### Cell 2
 
+save results into array
+such as:
+```python
+real_pwm_SFR = np.array([564, 890, 1219, 1564, 1897])
+```
+
 ### Cell 3
+
+Run regression and save the coefficent that best fit your servo ofsets. So when you will gove random angles, the accuracy of the servo is maximize!!!
+
+```python
+# Data: Degrees and corresponding real PWM values
+degrees = np.array([0, 45, 90, 135, 180])  # x values (degree)
+
+# Perform quadratic regression (degree 2 polynomial)
+coefficients = np.polyfit(degrees, real_pwm, 2)
+
+# Coefficients: a, b, c (for ax^2 + bx + c)
+a, b, c = coefficients
+
+# Output the coefficients
+print(f"Quadratic equation coefficients: a = {a}, b = {b}, c = {c}")
+
+# Optional: Plotting the fit
+plt.scatter(degrees, real_pwm, color='blue', label='Data points')
+x_vals = np.linspace(0, 180, 1000)
+y_vals = a * x_vals**2 + b * x_vals + c
+plt.plot(x_vals, y_vals, color='red', label=f'Quadratic fit: {a:.2f}x^2 + {b:.2f}x + {c:.2f}')
+plt.xlabel('Degrees')
+plt.ylabel('PWM')
+plt.title('Quadratic Regression: Degrees vs Real PWM')
+plt.legend()
+plt.show()
+```
 
 ## Result
 You should end up with some results like this:
@@ -86,6 +122,7 @@ Before calibration
 ![Before calibration](https://github.com/botzo-team/our_images_and_videos/blob/main/before_calibration.gif)
 
 After calibration
+
 ![After calibration](https://github.com/botzo-team/our_images_and_videos/blob/main/after_calibration.gif)
 
 ## Notes
