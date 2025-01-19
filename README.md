@@ -2,6 +2,8 @@
 
 This repository contains a Python script designed for calibrating servos for a robot dog application. The calibration process uses Google Colab to map each servo's PWM signal to its actual angle, improving accuracy by correcting for each servo's unique error profile. This guide walks through the setup, usage, and the methodology used to achieve accurate servo positioning.
 
+We have to calibrate each servo motor, because the datasheets are an ideal functionig  of the motor, but in the reality to achive precision we need to adjust the desire angle with some error to actualy reach it. So in this repo we start with the assumptions of the Datasheet and correct the actual values to achive precision.
+
 ## Repo Content
 
 1. Calibration_Procedure.ipynb: Google collab that will find coefficient for least square regression to convert degrees to PWM with accuracy for each servo
