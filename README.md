@@ -39,6 +39,7 @@ You should end up with some results like this:
 
 ---
 
+<p align="center">
 <table>
   <tr>
     <td align="center"><strong>Before Calibration</strong></td>
@@ -53,6 +54,8 @@ You should end up with some results like this:
     </td>
   </tr>
 </table>
+</p>
+
 
 For higer accuracy!!!
 
