@@ -142,15 +142,26 @@ plt.show()
 ## Result
 You should end up with some results like this:
 
-![result](https://github.com/botzo-team/our_images_and_videos/blob/main/result_of_one_leg_calibration.png)
+<p align="center">
+  <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/result_of_one_leg_calibration.png" alt="result" width="400"/>
+</p>
 
-Before calibration
+---
 
-![Before calibration](https://github.com/botzo-team/our_images_and_videos/blob/main/before_calibration.gif)
-
-After calibration
-
-![After calibration](https://github.com/botzo-team/our_images_and_videos/blob/main/after_calibration.gif)
+<table>
+  <tr>
+    <td align="center"><strong>Before Calibration</strong></td>
+    <td align="center"><strong>After Calibration</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/before_calibration.gif" alt="Before calibration" width="300"/>
+    </td>
+    <td>
+      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/after_calibration.gif" alt="After calibration" width="300"/>
+    </td>
+  </tr>
+</table>
 
 ## Notes
 Ensure you measure the actual angles carefully, as they significantly impact the calibration accuracy.
