@@ -40,20 +40,20 @@ You should end up with some results like this:
 ---
 
 <p align="center">
-<table>
-  <tr>
-    <td align="center"><strong>Before Calibration</strong></td>
-    <td align="center"><strong>After Calibration</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/before_calibration.gif" alt="Before calibration" width="300"/>
-    </td>
-    <td>
-      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/after_calibration.gif" alt="After calibration" width="300"/>
-    </td>
-  </tr>
-</table>
+    <table>
+    <tr>
+        <td align="center"><strong>Before Calibration</strong></td>
+        <td align="center"><strong>After Calibration</strong></td>
+    </tr>
+    <tr>
+        <td>
+        <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/before_calibration.gif" alt="Before calibration" width="300"/>
+        </td>
+        <td>
+        <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/after_calibration.gif" alt="After calibration" width="300"/>
+        </td>
+    </tr>
+    </table>
 </p>
 
 
