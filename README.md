@@ -25,9 +25,36 @@ more [here](https://github.com/IERoboticsAILab/botzo)
 
 # Robot Dog Servo Calibration
 
+
 This repository contains a Python script designed for calibrating servos for a robot dog application. The calibration process uses Google Colab to map each servo's PWM signal to its actual angle, improving accuracy by correcting for each servo's unique error profile. This guide walks through the setup, usage, and the methodology used to achieve accurate servo positioning.
 
 We have to calibrate each servo motor, because the datasheets are an ideal functionig  of the motor, but in the reality to achive precision we need to adjust the desire angle with some error to actualy reach it. So in this repo we start with the assumptions of the Datasheet and correct the actual values to achive precision.
+
+## Result
+You should end up with some results like this:
+
+<p align="center">
+  <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/result_of_one_leg_calibration.png" alt="result" width="400"/>
+</p>
+
+---
+
+<table>
+  <tr>
+    <td align="center"><strong>Before Calibration</strong></td>
+    <td align="center"><strong>After Calibration</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/before_calibration.gif" alt="Before calibration" width="300"/>
+    </td>
+    <td>
+      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/after_calibration.gif" alt="After calibration" width="300"/>
+    </td>
+  </tr>
+</table>
+
+For higer accuracy!!!
 
 ## Repo Content
 
@@ -139,29 +166,6 @@ plt.legend()
 plt.show()
 ```
 
-## Result
-You should end up with some results like this:
-
-<p align="center">
-  <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/result_of_one_leg_calibration.png" alt="result" width="400"/>
-</p>
-
----
-
-<table>
-  <tr>
-    <td align="center"><strong>Before Calibration</strong></td>
-    <td align="center"><strong>After Calibration</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/before_calibration.gif" alt="Before calibration" width="300"/>
-    </td>
-    <td>
-      <img src="https://github.com/botzo-team/our_images_and_videos/blob/main/after_calibration.gif" alt="After calibration" width="300"/>
-    </td>
-  </tr>
-</table>
 
 ## Notes
 Ensure you measure the actual angles carefully, as they significantly impact the calibration accuracy.
