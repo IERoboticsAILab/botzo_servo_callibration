@@ -142,7 +142,7 @@ plt.show()
 ## Result
 You should end up with some results like this:
 
-[result](https://github.com/botzo-team/our_images_and_videos/blob/main/result_of_one_leg_calibration.png)
+![result](https://github.com/botzo-team/our_images_and_videos/blob/main/result_of_one_leg_calibration.png)
 
 Before calibration
 
